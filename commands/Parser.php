@@ -42,9 +42,7 @@ class Parser
      */
     public function process() : void
     {
-        // если файлы не большие предпочтительнее file_get_contents
         $peoplePath = __DIR__ . '/files/people.csv';
-
 
         if ($f = fopen($peoplePath, 'r')) {
             $this->task === 'countAverageLineCount' ? $this->countAverage($f) : $this->replaceDates($f);

@@ -2,8 +2,9 @@
 
 namespace app\commands;
 
-use yii\base\InvalidConfigException;
-use yii\console\{Controller, ExitCode};
+use yii\console\{
+    Controller, Exception, ExitCode
+};
 
 class ParseController extends Controller
 {
@@ -11,7 +12,7 @@ class ParseController extends Controller
      * @param string $del
      * @param string $task
      * @return int Exit code
-     * @throws InvalidConfigException
+     * @throws Exception
      */
     public function actionStart(string $del = 'semicolon', string $task = 'countAverageLineCount') : int
     {
