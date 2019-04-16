@@ -82,12 +82,18 @@ class Parser
     /**
      * @param resource $f
      * @return void
+     * @throws Exception
      */
     public function replaceDates($f) : void
     {
         print('Start replace dates: ' . PHP_EOL);
 
         while ($people = fgetcsv($f,   100, $this->del)) {
+
+            if (!array_key_exists(1, $people)) {
+                throw new Exception('The delimiter cannot split the string');
+            }
+
             $count = 0;
 
             foreach (glob(self::textsPath . '/' . $people[0] . '-*.txt') as $file) {
